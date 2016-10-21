@@ -1,6 +1,6 @@
 # The Blue Cabrio
 
-This is a template for angular 1.5.5 with sass
+This is a template for angular 1.5.5 with sass and foundation 6
 
 ## Get started
 
@@ -25,6 +25,11 @@ JS Vendors used in project, they live in src/js/vendor
 - AngularJS Route
 - AngularJS Sanatize
 - moment.js v2.15.0
+
+##### dependencies
+```
+"foundation-sites": "^6.2.4"
+```
 
 ##### Dev dependencies
 List of dev dependencies used, can be found in package.json.

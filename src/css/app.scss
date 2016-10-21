@@ -1,0 +1,12 @@
+// lets use foundation 6 apps or sites
+// npm install foundation-sites --save or npm install foundation-apps --save
+
+// vendor
+@import "../../node_modules/foundation-sites/scss/foundation";
+// include flex
+@include foundation-everything(true);
+
+// layout components
+@import "sass/components/layout/header";
+@import "sass/components/layout/footer";
+@import "sass/components/layout/nav";

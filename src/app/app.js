@@ -18,6 +18,9 @@
         templateUrl: 'views/index.html',
         controller: 'indexController'
       })
+      .when('/basic', {
+          templateUrl: 'views/basic.html'
+      })
       .otherwise({
         templateUrl: 'views/404.html'
       });
