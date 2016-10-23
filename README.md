@@ -1,5 +1,8 @@
 # The Blue Cabrio
 
+### Status
+[![Build Status](https://travis-ci.org/thebluecabrio/angular1-template-with-foundation6.png)](https://travis-ci.org/thebluecabrio/angular1-template-with-foundation6.png)
+
 This is a template for angular 1.5.8 with sass and foundation sites 6
 
 ## Get started
@@ -16,4 +19,3 @@ This is a template for angular 1.5.8 with sass and foundation sites 6
 
 ### Production
 `grunt build:production` will output files to `dist/` directory, copy them files, zip them up and deploy it to your webserver.
-
