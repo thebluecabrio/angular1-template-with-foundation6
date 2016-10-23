@@ -1,7 +1,7 @@
 # The Blue Cabrio
 
 ### Status
-[![Build Status](https://travis-ci.org/thebluecabrio/angular1-template-with-foundation6.png)](https://travis-ci.org/thebluecabrio/angular1-template-with-foundation6.png)
+[![Build Status](https://travis-ci.org/thebluecabrio/angular1-template-with-foundation6.png)](https://travis-ci.org/thebluecabrio/angular1-template-with-foundation6)
 
 This is a template for angular 1.5.8 with sass and foundation sites 6
 
