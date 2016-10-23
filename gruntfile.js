@@ -92,8 +92,7 @@ module.exports = function (grunt) {
             angular_js: {
                 src: [
                   'node_modules/angular/angular.js',
-                  'node_modules/angular-*/angular-*.min.js'
-                ],
+                  'node_modules/angular-*/angular-*.min.js'],
                 dest: 'dist/js/angular.js'
             },
             angular_js_prod: {
@@ -161,6 +160,22 @@ module.exports = function (grunt) {
             }
         },
 
+        karma: {
+          options: {
+            configFile: 'karma.conf.js'
+          },
+          development: {
+            background: true,
+            singleRun: false
+          },
+          test: {
+              reporters: ['progress', 'coverage']
+          },
+          production: {
+
+          }
+        },
+
         // Process our HTML includes
         // Replace JS and CSS imports for minified build versions
         processhtml: {
@@ -204,7 +219,7 @@ module.exports = function (grunt) {
                 },
 
                 scripts: {
-                    files: ['src/js/**/*.js', 'src/app/**/*.js','!src/app/shared/caConfig/caConfigService.js'],
+                    files: ['src/js/**/*.js', 'src/app/**/*.js'],
                     tasks: ['newer:jshint', 'beep:error:*', 'ngAnnotate', 'concat:angular_js', 'concat:vendor_js'],
                     options: {
                         livereload: true,
@@ -247,6 +262,16 @@ module.exports = function (grunt) {
                         nospawn: true
                     }
                 },
+                karma: {
+                    autoWatch: true,
+                    files: {
+                        pattern: "src/app/**/*.spec.js",
+                        watched: false,
+                        served: true,
+                        included: true
+                    },
+                    tasks: ['karma:development:run']
+                }
             }
         });
 
@@ -275,11 +300,10 @@ module.exports = function (grunt) {
         grunt.log.writeln(serverMessage['green']);
     });
 
-
-
     // 'develop' task for active site development
     grunt.registerTask('develop',
-        ['jshint',
+        ['karma:development',
+         'jshint',
          'clean:all',
          'copy_static',
          'sass',
@@ -293,7 +317,7 @@ module.exports = function (grunt) {
          'watch']);
 
     // 'build' task for creating a clean, optimised set of files for distribution
-    grunt.registerTask('build:development',
+    grunt.registerTask('build:test',
         ['jshint',
          'clean:all',
          'copy_static',
@@ -301,7 +325,8 @@ module.exports = function (grunt) {
          'concat:angular_js',
          'concat:vendor_js',
          'ngAnnotate',
-         'cacheBust']);
+         'cacheBust',
+         'karma:test']);
 
     grunt.registerTask('build:production',
      ['jshint',
@@ -314,7 +339,8 @@ module.exports = function (grunt) {
       'ngAnnotate',
       'cssmin',
       'uglify',
-      'cacheBust']);
+      'cacheBust',
+      'karma:production']);
 
     grunt.registerTask('copy_static', [
       'copy:html',
