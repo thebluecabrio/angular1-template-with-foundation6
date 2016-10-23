@@ -26,25 +26,10 @@
       });
 
     };
-
-    /**
-   * Main application controller
-   *
-   * @ngInject
-   *
-   */
-    var theBlueCabrioController = function () {
-
-    };
-
+    
     /**
     * Sets up application configuration
     */
     angular.module('theBlueCabrio').config(theBlueCabrioConfig);
-
-    /**
-     * Sets up the application controller
-     */
-    angular.module('theBlueCabrio').controller('theBlueCabrioController', theBlueCabrioController);
 
 })();
